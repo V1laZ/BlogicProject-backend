@@ -11,7 +11,7 @@ django-filter = "*"
 django-cors-headers = "*"
 mssql-django = "*"
 pyodbc = "*"
-django-mssql = "==1.0.1"
+djangorestframework-simplejwt = "*"
 
 [dev-packages]
 
