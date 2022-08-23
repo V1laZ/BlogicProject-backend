@@ -4,7 +4,6 @@ Frontend can be found [here](https://github.com/V1laZ/BlogicProject-frontend)
 
 ## Table of Contents
 - [BlogicProject-backend](#blogicproject-backend)
-  - [Table of Contents](#table-of-contents)
   - [Prerequisites](#prerequisites)
   - [Install dependencies](#install-dependencies)
   - [Start local server](#start-local-server)
