@@ -1,5 +1,6 @@
 # BlogicProject-backend
-Backend for **BlogicProject** done with **Django** framework. 
+Backend for **BlogicProject** done with **Django** framework.   
+Frontend can be found [here](https://github.com/V1laZ/BlogicProject-frontend)
 
 ## Table of Contents
 - [BlogicProject-backend](#blogicproject-backend)
