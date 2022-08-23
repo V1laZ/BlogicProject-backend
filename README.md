@@ -54,7 +54,7 @@ Database is built with **Django** framework and is running on **SQLite** databas
 ### Managing the database
 To manage **values** in the database it is recommended to use the **Django admin panel** that can be accessed on http://127.0.0.1:8000/admin.
 
-Altering **tables** should be done in the [models.py](../blogic/api/models.py) file.
+Altering **tables** should be done in the [models.py](/blogic/api/models.py) file.
 
 ## API
 API is done with django REST framework. It handles HTTP calls from the front-end on the database. It currently handles calls for **Klient**, **Poradce**, **Smlouva** and **user authentication**.   Default API route is http://127.0.0.1:8000/
