@@ -1,6 +1,9 @@
 # BlogicProject-backend
-Backend for **BlogicProject** done with **Django** framework.
+Backend for **BlogicProject** done with **Django** framework. 
+
+## Table of Contents
 - [BlogicProject-backend](#blogicproject-backend)
+  - [Table of Contents](#table-of-contents)
   - [Prerequisites](#prerequisites)
   - [Install dependencies](#install-dependencies)
   - [Start local server](#start-local-server)
