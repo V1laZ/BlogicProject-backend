@@ -1,3 +1,4 @@
+# Table of contents
 - [Database](#database)
   - [Database scheme](#database-scheme)
   - [Managing the database](#managing-the-database)
