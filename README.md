@@ -58,7 +58,7 @@ To manage **values** in the database it is recommended to use the **Django admin
 Altering **tables** should be done in the [models.py](/blogic/api/models.py) file.
 
 ## API
-API is done with django REST framework. It handles HTTP calls from the front-end on the database. It currently handles calls for **Client**, **Advisor**, **Contract** and **user authentication**.   Default API route is http://127.0.0.1:8000/api/
+API is done with django REST framework. It handles HTTP calls from the front-end on the database. It currently handles calls for **Client**, **Advisor**, **Contract** and **user authentication**.   Default API route is http://127.0.0.1:8000/api
 ### Access token
 To get data from database through the **API** you first need to get an **access token**. Access token can be extracted from **JSON Web Token** that the server returns if you send it valid credentials. Access token is valid for **1 day**.  
 
