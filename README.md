@@ -99,7 +99,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 
 constructor(private http: HttpClient) { }
 
-baseurl = "http://127.0.0.1:8000/api/";
+baseurl = "http://127.0.0.1:8000/api";
 
 getAllClients(): Observable<any>{
     const httpHeaders = new HttpHeaders({
@@ -148,7 +148,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 
 constructor(private http: HttpClient) { }
 
-baseurl = "http://127.0.0.1:8000/api/";
+baseurl = "http://127.0.0.1:8000/api";
 
 getClient(id: number): Observable<any>{
     const httpHeaders = new HttpHeaders({
@@ -186,7 +186,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 
 constructor(private http: HttpClient) { }
 
-baseurl = "http://127.0.0.1:8000/api/";
+baseurl = "http://127.0.0.1:8000/api";
 
 getAllAdvisors(): Observable<any>{
     const httpHeaders = new HttpHeaders({
@@ -235,7 +235,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 
 constructor(private http: HttpClient) { }
 
-baseurl = "http://127.0.0.1:8000/api/";
+baseurl = "http://127.0.0.1:8000/api";
 
 getAdvisor(id: number): Observable<any>{
     const httpHeaders = new HttpHeaders({
@@ -273,7 +273,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 
 constructor(private http: HttpClient) { }
 
-baseurl = "http://127.0.0.1:8000/api/";
+baseurl = "http://127.0.0.1:8000/api";
 
 getAllContracts(): Observable<any>{
     const httpHeaders = new HttpHeaders({
@@ -322,7 +322,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 
 constructor(private http: HttpClient) { }
 
-baseurl = "http://127.0.0.1:8000/api/";
+baseurl = "http://127.0.0.1:8000/api";
 
 getContract(ev_cislo: number): Observable<any>{
     const httpHeaders = new HttpHeaders({
