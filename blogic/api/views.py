@@ -1,16 +1,16 @@
 from rest_framework import viewsets
 from .serializers import KlientSerializer, PoradceSerializer, SmlouvaSerializer
-from .models import Klient, Poradce, Smlouva
+from .models import Client, Advisor, Contract
 
 # ViewSets define the view behavior.
 class KlientViewSet(viewsets.ModelViewSet):
-    queryset = Klient.objects.all()
+    queryset = Client.objects.all()
     serializer_class = KlientSerializer
 
 class PoradceViewSet(viewsets.ModelViewSet):
-    queryset = Poradce.objects.all()
+    queryset = Advisor.objects.all()
     serializer_class = PoradceSerializer
 
 class SmlouvaViewSet(viewsets.ModelViewSet):
-    queryset = Smlouva.objects.all()
+    queryset = Contract.objects.all()
     serializer_class = SmlouvaSerializer

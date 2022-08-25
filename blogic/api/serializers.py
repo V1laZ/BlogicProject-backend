@@ -1,18 +1,18 @@
 from rest_framework import  serializers
-from .models import Klient, Poradce, Smlouva
+from .models import Client, Advisor, Contract
 
 # Serializers define the API representation.
 class KlientSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Klient
-        fields = ['id', 'jmeno', 'prijmeni', 'email', 'tel_cislo', 'rod_cislo', 'vek']
+        model = Client
+        fields = ['id', 'first_name', 'last_name', 'email', 'phone', 'PIN', 'age']
 
 class PoradceSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Poradce
-        fields = ['id', 'jmeno', 'prijmeni', 'email', 'tel_cislo', 'rod_cislo', 'vek']
+        model = Advisor
+        fields = ['id', 'first_name', 'last_name', 'email', 'phone', 'PIN', 'age']
 
 class SmlouvaSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Smlouva
-        fields = ['ev_cislo', 'instituce', 'klient', 'spravce', 'dat_uzavreni', 'dat_platnosti', 'dat_ukonceni']
+        model = Contract
+        fields = ['reg_num', 'institution', 'client', 'manager', 'date_close', 'date_valid', 'date_end']

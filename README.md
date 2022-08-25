@@ -4,6 +4,7 @@ Frontend can be found [here](https://github.com/V1laZ/BlogicProject-frontend)
 
 ## Table of Contents
 - [BlogicProject-backend](#blogicproject-backend)
+  - [Table of Contents](#table-of-contents)
   - [Prerequisites](#prerequisites)
   - [Install dependencies](#install-dependencies)
   - [Start local server](#start-local-server)
@@ -13,12 +14,12 @@ Frontend can be found [here](https://github.com/V1laZ/BlogicProject-frontend)
     - [Managing the database](#managing-the-database)
   - [API](#api)
     - [Access token](#access-token)
-    - [Klients](#klients)
-    - [Klient](#klient)
-    - [Poradces](#poradces)
-    - [Poradce](#poradce)
-    - [Smlouvas](#smlouvas)
-    - [Smlouva](#smlouva)
+    - [Clients](#clients)
+    - [Client](#client)
+    - [Advisors](#advisors)
+    - [Advisor](#advisor)
+    - [Contracts](#contracts)
+    - [Contract](#contract)
 ## Prerequisites
 - [Python 3](https://www.python.org/downloads/)
 - [pipenv](https://pypi.org/project/pipenv/)
@@ -49,7 +50,7 @@ Database is built with **Django** framework and is running on **SQLite** databas
 - **Username**: vilaz
 - **Password**: 316Tnl40&r3r
 ### Database scheme
-![](https://imgur.com/kx5G41E.png)
+![](https://imgur.com/6ugb6O4.png)
 
 ### Managing the database
 To manage **values** in the database it is recommended to use the **Django admin panel** that can be accessed on http://127.0.0.1:8000/admin.
@@ -57,12 +58,12 @@ To manage **values** in the database it is recommended to use the **Django admin
 Altering **tables** should be done in the [models.py](/blogic/api/models.py) file.
 
 ## API
-API is done with django REST framework. It handles HTTP calls from the front-end on the database. It currently handles calls for **Klient**, **Poradce**, **Smlouva** and **user authentication**.   Default API route is http://127.0.0.1:8000/
+API is done with django REST framework. It handles HTTP calls from the front-end on the database. It currently handles calls for **Client**, **Advisor**, **Contract** and **user authentication**.   Default API route is http://127.0.0.1:8000/api/
 ### Access token
 To get data from database through the **API** you first need to get an **access token**. Access token can be extracted from **JSON Web Token** that the server returns if you send it valid credentials. Access token is valid for **1 day**.  
 
 **Request**  
-`POST` /api/token
+`POST` /token/
 
 Example request in Angular:
 ```ts
@@ -86,11 +87,11 @@ Example response:
 }
 ```
 
-### Klients
-Gets all available klients.
+### Clients
+Gets all available clients.
 
 **Request**  
-`GET` /klient/
+`GET` /clients/
 
 Example request in Angular:
 ```ts
@@ -98,7 +99,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 
 constructor(private http: HttpClient) { }
 
-baseurl = "http://127.0.0.1:8000/";
+baseurl = "http://127.0.0.1:8000/api/";
 
 getAllClients(): Observable<any>{
     const httpHeaders = new HttpHeaders({
@@ -106,7 +107,7 @@ getAllClients(): Observable<any>{
       'Authorization': 'Bearer ' + ACCESS_TOKEN
     })
 
-    return this.http.get(this.baseurl + '/klient/', 
+    return this.http.get(this.baseurl + '/clients/', 
     {headers: httpHeaders});
   }
 ```
@@ -116,30 +117,30 @@ Example response:
 [
     {
         "id": 1,
-        "jmeno": "Grant",
-        "prijmeni": "Wolf",
+        "first_name": "Grant",
+        "last_name": "Wolf",
         "email": "example@example.com",
-        "tel_cislo": "756461611",
-        "rod_cislo": "850125/4420",
-        "vek": 37
+        "phone": "756461611",
+        "PIN": "850125/4420",
+        "age": 37
     },
     {
         "id": 2,
-        "jmeno": "Keisha",
-        "prijmeni": "Diaz",
+        "first_name": "Keisha",
+        "last_name": "Diaz",
         "email": "example3@example.com",
-        "tel_cislo": "756465156",
-        "rod_cislo": "900125/8123",
-        "vek": 32
+        "phone": "756465156",
+        "PIN": "900125/8123",
+        "age": 32
     }
 ]
 ```
 
-### Klient
-Gets klient data for the specified klient ID.
+### Client
+Gets klient data for the specified client ID.
 
 **Request**  
-`GET` /klient/{id}
+`GET` /clients/{id}
 
 Example request in Angular:
 ```ts
@@ -147,7 +148,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 
 constructor(private http: HttpClient) { }
 
-baseurl = "http://127.0.0.1:8000/";
+baseurl = "http://127.0.0.1:8000/api/";
 
 getClient(id: number): Observable<any>{
     const httpHeaders = new HttpHeaders({
@@ -155,7 +156,7 @@ getClient(id: number): Observable<any>{
       'Authorization': 'Bearer ' + ACCESS_TOKEN
     })
 
-    return this.http.get(this.baseurl + '/klient/' + id, 
+    return this.http.get(this.baseurl + '/clients/' + id, 
     {headers: httpHeaders});
   }
 ```
@@ -164,20 +165,20 @@ Example response:
 ```json
 {
     "id": 1,
-    "jmeno": "Grant",
-    "prijmeni": "Wolf",
+    "first_name": "Grant",
+    "last_name": "Wolf",
     "email": "example@example.com",
-    "tel_cislo": "756461611",
-    "rod_cislo": "850125/4420",
-    "vek": 37
+    "phone": "756461611",
+    "PIN": "850125/4420",
+    "age": 37
 }
 ```
 
-### Poradces
-Gets all available poradces.
+### Advisors
+Gets all available advisors.
 
 **Request**  
-`GET` /poradce/
+`GET` /advisors/
 
 Example request in Angular:
 ```ts
@@ -185,15 +186,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 
 constructor(private http: HttpClient) { }
 
-baseurl = "http://127.0.0.1:8000/";
+baseurl = "http://127.0.0.1:8000/api/";
 
-getAllPoradces(): Observable<any>{
+getAllAdvisors(): Observable<any>{
     const httpHeaders = new HttpHeaders({
       'Content-type': 'application/json',
       'Authorization': 'Bearer ' + ACCESS_TOKEN
     })
 
-    return this.http.get(this.baseurl + '/poradce/', 
+    return this.http.get(this.baseurl + '/advisors/', 
     {headers: httpHeaders});
   }
 ```
@@ -203,30 +204,30 @@ Example response:
 [
     {
         "id": 1,
-        "jmeno": "Ethel",
-        "prijmeni": "Conrad",
+        "first_name": "Ethel",
+        "last_name": "Conrad",
         "email": "example2@example.com",
-        "tel_cislo": "756186456",
-        "rod_cislo": "820318/8123",
+        "phone": "756186456",
+        "PIN": "820318/8123",
         "vek": 40
     },
     {
         "id": 2,
-        "jmeno": "Shane",
-        "prijmeni": "Mclaughlin",
+        "first_name": "Shane",
+        "last_name": "Mclaughlin",
         "email": "example44@example.com",
-        "tel_cislo": "756189165",
-        "rod_cislo": "930125/5786",
-        "vek": 29
+        "phone": "756189165",
+        "PIN": "930125/5786",
+        "age": 29
     }
 ]
 ```
 
-### Poradce
-Gets poradce data for the specified poradce ID.
+### Advisor
+Gets advisor data for the specified advisor ID.
 
 **Request**  
-`GET` /poradce/{id}
+`GET` /advisors/{id}
 
 Example request in Angular:
 ```ts
@@ -234,15 +235,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 
 constructor(private http: HttpClient) { }
 
-baseurl = "http://127.0.0.1:8000/";
+baseurl = "http://127.0.0.1:8000/api/";
 
-getPoradce(id: number): Observable<any>{
+getAdvisor(id: number): Observable<any>{
     const httpHeaders = new HttpHeaders({
       'Content-type': 'application/json',
       'Authorization': 'Bearer ' + ACCESS_TOKEN
     })
 
-    return this.http.get(this.baseurl + '/poradce/' + id, 
+    return this.http.get(this.baseurl + '/advisors/' + id, 
     {headers: httpHeaders});
   }
 ```
@@ -251,20 +252,20 @@ Example response:
 ```json
 {
     "id": 1,
-    "jmeno": "Ethel",
-    "prijmeni": "Conrad",
+    "first_name": "Ethel",
+    "last_name": "Conrad",
     "email": "example2@example.com",
-    "tel_cislo": "756186456",
-    "rod_cislo": "820318/8123",
-    "vek": 40
+    "phone": "756186456",
+    "PIN": "820318/8123",
+    "age": 40
 }
 ```
 
-### Smlouvas
-Gets all available smlouvas.
+### Contracts
+Gets all available contracts.
 
 **Request**  
-`GET` /smlouva/
+`GET` /contracts/
 
 Example request in Angular:
 ```ts
@@ -272,15 +273,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 
 constructor(private http: HttpClient) { }
 
-baseurl = "http://127.0.0.1:8000/";
+baseurl = "http://127.0.0.1:8000/api/";
 
-getAllSmlouvas(): Observable<any>{
+getAllContracts(): Observable<any>{
     const httpHeaders = new HttpHeaders({
       'Content-type': 'application/json',
       'Authorization': 'Bearer ' + ACCESS_TOKEN
     })
 
-    return this.http.get(this.baseurl + '/smlouva/', 
+    return this.http.get(this.baseurl + '/contracts/', 
     {headers: httpHeaders});
   }
 ```
@@ -289,31 +290,31 @@ Example response:
 ```json
 [
     {
-        "ev_cislo": "0215651614",
-        "instituce": "CSOB",
-        "klient": 1,
-        "spravce": 1,
-        "dat_uzavreni": "2023-01-02",
-        "dat_platnosti": "2023-01-02",
-        "dat_ukonceni": "2023-01-03"
+        "reg_num": "0215651614",
+        "institution": "CSOB",
+        "client": 1,
+        "manager": 1,
+        "dat_close": "2023-01-02",
+        "dat_valid": "2023-01-02",
+        "dat_end": "2023-01-03"
     },
     {
-        "ev_cislo": "0231354189",
-        "instituce": "AEGON",
-        "klient": 2,
-        "spravce": 1,
-        "dat_uzavreni": "2023-01-03",
-        "dat_platnosti": "2023-01-03",
-        "dat_ukonceni": "2023-01-04"
+        "reg_num": "0231354189",
+        "institution": "AEGON",
+        "client": 1,
+        "manager": 2,
+        "date_close": "2023-01-03",
+        "date_valid": "2023-01-03",
+        "date_end": "2023-01-04"
     }
 ]
 ```
 
-### Smlouva
-Gets smlouva data for the specified smlouva ev_cislo.
+### Contract
+Gets contract data for the specified contract reg_num.
 
 **Request**  
-`GET` /smlouva/{ev_cislo}
+`GET` /contracts/{reg_num}
 
 Example request in Angular:
 ```ts
@@ -321,15 +322,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 
 constructor(private http: HttpClient) { }
 
-baseurl = "http://127.0.0.1:8000/";
+baseurl = "http://127.0.0.1:8000/api/";
 
-getSmlouva(ev_cislo: number): Observable<any>{
+getContract(ev_cislo: number): Observable<any>{
     const httpHeaders = new HttpHeaders({
       'Content-type': 'application/json',
       'Authorization': 'Bearer ' + ACCESS_TOKEN
     })
 
-    return this.http.get(this.baseurl + '/smlouva/' + ev_cislo, 
+    return this.http.get(this.baseurl + '/contracts/' + ev_cislo, 
     {headers: httpHeaders});
   }
 ```
@@ -337,12 +338,12 @@ getSmlouva(ev_cislo: number): Observable<any>{
 Example response:
 ```json
 {
-    "ev_cislo": "0215651614",
-    "instituce": "CSOB",
-    "klient": 1,
-    "spravce": 1,
-    "dat_uzavreni": "2023-01-02",
-    "dat_platnosti": "2023-01-02",
-    "dat_ukonceni": "2023-01-03"
+    "reg_num": "0215651614",
+    "institution": "CSOB",
+    "client": 1,
+    "manager": 1,
+    "date_close": "2023-01-02",
+    "date_valid": "2023-01-02",
+    "date_end": "2023-01-03"
 }
 ```
