@@ -294,9 +294,9 @@ Example response:
         "institution": "CSOB",
         "client": 1,
         "manager": 1,
-        "dat_close": "2023-01-02",
-        "dat_valid": "2023-01-02",
-        "dat_end": "2023-01-03"
+        "date_close": "2023-01-02",
+        "date_valid": "2023-01-02",
+        "date_end": "2023-01-03"
     },
     {
         "reg_num": "0231354189",
