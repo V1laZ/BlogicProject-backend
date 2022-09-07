@@ -25,22 +25,22 @@ Frontend can be found [here](https://github.com/V1laZ/BlogicProject-frontend)
 - [pipenv](https://pypi.org/project/pipenv/)
 ## Install dependencies
 - Activate virtual environment in the project folder
-```
-pipenv shell
-```
+  ```
+  pipenv shell
+  ```
 - Install dependencies
-```
-pipenv install
-```
+  ```
+  pipenv install
+  ```
 ## Start local server
 - Activate virtual environment in the project folder
-```
-pipenv shell
-```
+  ```
+  pipenv shell
+  ```
 - Run the server
-```
-python manage.py runserver
-```
+  ```
+  python manage.py runserver
+  ```
 - Server should be running at http://127.0.0.1:8000/
 
 # Docs
@@ -53,7 +53,7 @@ Database is built with **Django** framework and is running on **SQLite** databas
 ![](https://imgur.com/6ugb6O4.png)
 
 ### Managing the database
-To manage **values** in the database it is recommended to use the **Django admin panel** that can be accessed on http://127.0.0.1:8000/admin.
+To manage **values** in the database it is recommended to use **Django admin panel** that can be accessed on http://127.0.0.1:8000/admin.
 
 Altering **tables** should be done in the [models.py](/blogic/api/models.py) file.
 
